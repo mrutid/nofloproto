@@ -1,0 +1,14 @@
+{
+  "name": "my-noflo-example-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "noflo-core": "~0.1.3",
+    "noflo-redis": "0.0.4",
+    "noflo-filesystem": "~1.0.4",
+    "noflo-strings": "~0.1.5",
+    "noflo-packets": "~0.1.2",
+    "noflo-webserver": "git://github.com/noflo/noflo-webserver.git",
+    "noflo-objects": "~0.1.8",
+    "noflo-math": "0.0.4"
+  }
+}

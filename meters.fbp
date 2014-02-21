@@ -1,0 +1,52 @@
+'8070' -> LISTEN ServerT1(Server)
+'8071' -> LISTEN ServerT2(Server)
+
+#parse the messages
+ServerT1() REQUEST -> IN SplitR1(Split) OUT -> IN BparserT1(BodyParser)  
+ServerT2() REQUEST -> IN SplitR2(Split) OUT -> IN BparserT2(BodyParser)
+
+#Generate an empty http response from the splitted req
+SplitR1() OUT -> IN SendRes1(SendResponse)
+SplitR2() OUT -> IN SendRes2(SendResponse)
+
+#extract the body
+'req' -> KEY ReqPropT1(ExtractProperty)
+'body' -> KEY BodyT1(ExtractProperty)
+BparserT1() OUT -> IN ReqPropT1() OUT -> IN BodyT1(ExtractProperty)
+
+'req' -> KEY ReqPropT2(ExtractProperty)
+'body' -> KEY BodyT2()
+BparserT2() OUT -> IN ReqPropT2() OUT -> IN BodyT2(ExtractProperty)
+
+#SPLIT Measures to accept multiple OUT attachments 
+BodyT1() OUT -> IN MeasureT1HUB(Split)
+BodyT2() OUT -> IN MeasureT2HUB(Split)
+
+#Keep full measure JSON in Redis (default config)
+'m1' -> KEY StoreT1(redis/Set)
+MeasureT1HUB() OUT -> VALUE StoreT1()
+'m2' -> KEY StoreT2(redis/Set)
+MeasureT2HUB() OUT -> VALUE StoreT2()
+
+#error without this, attach the outputports
+StoreT1() OUT -> IN Display(Output)
+StoreT1() ERROR -> IN Display()
+StoreT2() OUT -> IN Display(Output)
+StoreT2() ERROR -> IN Display()
+
+#Compute Average
+'value' -> KEY getMeasureT1(ExtractProperty)
+'value' -> KEY getMeasureT2(ExtractProperty)
+MeasureT1HUB() OUT -> IN getMeasureT1() OUT -> AUGEND SumaT1T2(math/Add)
+MeasureT2HUB() OUT -> IN getMeasureT2() OUT -> ADDEND SumaT1T2()
+
+SumaT1T2() SUM -> DIVIDEND AVGT1T2(math/Divide)
+'2' ->  DIVISOR AVGT1T2()
+
+#Keep Average in redis
+'avg' -> KEY StoreAvg(redis/Set)
+AVGT1T2() QUOTIENT -> VALUE StoreAvg()
+
+#error without this attach the outputports
+StoreAvg() OUT -> IN Display()
+StoreAvg() ERROR -> IN Display()

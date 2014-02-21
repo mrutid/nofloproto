@@ -1,0 +1,3 @@
+'8070' -> LISTEN Server(Server)
+'Hello World' -> STRING Writer(WriteResponse)
+Server() REQUEST -> IN Writer() OUT -> IN Send(SendResponse)

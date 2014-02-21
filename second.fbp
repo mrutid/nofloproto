@@ -1,0 +1,8 @@
+'somefile.txt' -> IN Read(ReadFile) OUT -> IN Split(Split)
+Split() OUT -> IN Display(Output)
+Split() OUT -> IN Count(Counter) COUNT -> IN Display()
+' ' -> DELIMITER LineCount(SplitStr)
+Split() OUT -> IN LineCount() OUT -> IN Count2(Counter) COUNT -> IN Display()
+Count() OUT -> IN Display()
+Count2() OUT -> IN Display()
+Read() ERROR -> IN Display()
