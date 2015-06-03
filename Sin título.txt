@@ -1,0 +1,45 @@
+Perfil: FRONT END DEVELOPER
+
+JOB DESCRIPTION
+===============
+Do you want to work in one of the most excited initiative in Telefónica? Do you want to be part of the team that develop the Future of SmartCities and IoT Platforms? Do you have interest in participate, along with all kind of european partners, in one of the most changeling EU projects [FI-WARE]? If you want to do so, apply to this position. We want you.
+
+Responsibilities
+================
+ 
+* Define front end solutions by using the FI-WARE platform services
+* Be able to design and implement astonish User Interfaces, giving solution to SmartCities and Industrial IoT scenarios 
+* Develop the user stories identified in the roadmap of the service
+* Design, plan and apply corrective and preemptive modifications in the service
+
+ 
+Qualifications
+==============
+ 
+* BS/MS Degree in Computer Science or related degree or equivalent work experience in software development
+ 
+Technical Competences
+=====================
+ 
+* Fluency in the following languages and frameworks
+	HTML (specifically HTML5), CSS (specifically CSS3) and Javascript
+	jQuery and angular.js
+	HTTP / JSON and XML
+ 
+* Sound knowledge of
+	Software development paradigms, architectural patterns, design patterns and development principles and practices
+	Client/server programming
+	RESTful architectures
+	HTTP protocol, webruntime, environments and architecture
+	Design aptitudes
+ 
+* Experience in
+	Developing in Javascript, CSS3 and HTML5, with special focus on UI
+	Developing complex consumer web applications
+	Designing and developing WebApps will be a plus
+	Delivering web applications for most used browsers (IE, FF, Chrome, Safari)
+ 
+* Significant knowledge in the following technologies will be a plus:
+	Javascript TDD/BDD frameworks (e.g. Jasmine)
+	Security issues and software vulnerabilities
+	Language/frameworks to build web applications for cross-platform mobile devices (e.g. Phonegap)
